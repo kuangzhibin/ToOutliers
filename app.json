@@ -1,0 +1,31 @@
+{
+  "pages":[
+    "pages/list/list",
+    "pages/skill/skill",
+    "pages/my/my"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+   "tabBar": {
+    "list": [{
+      "pagePath": "pages/list/list",
+      "text": "清单",
+      "iconPath": "icon/form_light-gray.png",
+      "selectedIconPath": "icon/form_light.png"
+    }, {
+      "pagePath": "pages/skill/skill",
+      "text": "技能",
+      "iconPath": "icon/medal_light-gray.png",
+      "selectedIconPath": "icon/medal_light.png"
+    }, {
+      "pagePath": "pages/my/my",
+      "text": "我的",
+      "iconPath": "icon/my_light-gray.png",
+      "selectedIconPath": "icon/my_light.png"
+    }]
+  }
+}
