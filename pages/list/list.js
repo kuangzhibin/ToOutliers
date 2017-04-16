@@ -1,26 +1,53 @@
 //index.js
-//获取应用实例
 var app = getApp()
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {}
+    date: '',
+    todo: [],
+    txt: ''
   },
   //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
+  bindDateChange: function (e) {
+    this.setData({
+      date: e.detail.value
     })
+    this.initList()
   },
   onLoad: function () {
-    console.log('onLoad')
-    var that = this
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
-      //更新数据
-      that.setData({
-        userInfo:userInfo
-      })
+    var currentDate = app.currentDate
+    this.setData({
+      date: currentDate()
     })
+    this.initList()
+  },
+  onShow () {
+    this.initList()
+  },
+  addTodoHandle(e) {
+    console.log('add')
+    var todoList = this.data.todo
+    todoList.unshift({ txt: e.detail.value, done: false })
+    this.setData({
+      todo: todoList
+    })
+    this.setData({
+      txt: ''
+    })
+    wx.setStorageSync(this.data.date, this.data.todo)
+  },
+  todoTapHandle(e) {
+    var todoList = this.data.todo
+    todoList[e.target.id].done = !todoList[e.target.id].done
+    this.setData({
+      todo: todoList
+    })
+    wx.setStorageSync(this.data.date, this.data.todo)
+  },
+  initList() {
+    if (this.data.date) {
+      var list = wx.getStorageSync(this.data.date) || []
+      this.setData({ todo: list })
+    }
   }
+
 })

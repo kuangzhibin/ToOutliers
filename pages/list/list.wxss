@@ -1,21 +1,33 @@
 /**index.wxss**/
-.userinfo {
+view{
+  margin: 0 0 10px;
+  padding: 0 10px;
+}
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
 }
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.addTodo{
+  border: 1px solid #096;
+  padding: 10px;
+  margin-bottom: 10px;
 }
-
-.userinfo-nickname {
-  color: #aaa;
+.picker{
+  background: #096;
+  color: #fff;
+  padding: 20px;
+  text-align: center
 }
+.todoText{
 
-.usermotto {
-  margin-top: 200px;
+}
+.crossLine{
+  text-decoration: line-through;
+}
+.list{
+  padding: 10px;
+  background: #096;
+  color: #fff;
 }

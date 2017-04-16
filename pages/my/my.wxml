@@ -1,6 +1,11 @@
-<!--logs.wxml-->
-<view class="container log-list">
-  <block wx:for="{{logs}}" wx:for-item="log" wx:key="*this">
-    <text class="log-item">{{index + 1}}. {{log}}</text>
-  </block>
+<view class="container">
+  <view class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <view class="my-tool">
+    <button type="primary" bindtap="clearTodayDataHandle">清空今日清单</button>
+    <button type="plain" bindtap="clearDataHandle">清空所有清单</button>
+  </view>
 </view>
+

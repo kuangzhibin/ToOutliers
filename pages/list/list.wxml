@@ -1,10 +1,19 @@
 <!--index.wxml-->
-<view class="container">
-  <view  bindtap="bindViewTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+<view class="section">
+  <text>选择日期</text>
+  <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+    <view class="picker">
+     {{date}}
+    </view>
+  </picker>
+</view>
+<view >
+  <input class="addTodo"  bindconfirm="addTodoHandle" type="text" value="{{txt}}"/>
+</view>
+<view class="todoList">
+  <view class="list" wx:for="{{todo}}" wx:key="{{index}}" id="{{index}}" bindtap="todoTapHandle">
+    <text class="todoText">{{item.txt}}</text>
+    <text style="float:right">{{item.done ? '完成' : '未完成'}}</text>
   </view>
 </view>
+
