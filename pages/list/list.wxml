@@ -7,13 +7,14 @@
     </view>
   </picker>
 </view>
-<view >
+<view class="section">
   <input class="addTodo"  bindconfirm="addTodoHandle" type="text" value="{{txt}}"/>
 </view>
-<view class="todoList">
-  <view class="list" wx:for="{{todo}}" wx:key="{{index}}" id="{{index}}" bindtap="todoTapHandle">
-    <text class="todoText">{{item.txt}}</text>
-    <text style="float:right">{{item.done ? '完成' : '未完成'}}</text>
+<view class="todoList section">
+  <view  wx:for="{{todo}}" wx:key="{{index}}" bindtap="todoTapHandle">
+    <view id="{{index}}" class="list" style="text-decoration: {{item.done ? 'line-through' : 'none'}}">
+      {{item.txt}}
+    </view>
   </view>
 </view>
 

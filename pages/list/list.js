@@ -43,6 +43,9 @@ Page({
     })
     wx.setStorageSync(this.data.date, this.data.todo)
   },
+  stopPro () {
+    return false
+  },
   initList() {
     if (this.data.date) {
       var list = wx.getStorageSync(this.data.date) || []
